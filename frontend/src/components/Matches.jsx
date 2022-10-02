@@ -24,29 +24,70 @@ function User({ data }) {
     const participants = data.matches[i];
     for (let j = 0; j < participants.length; j++) {
       const match = participants[j].info.participants;
-      list1.push(match.find((item) => item.puuid.includes(data.puuid)));
-      list2.push(match.find((item) => !item.puuid.includes(data.puuid)));
+      list1.push(match.filter(item => {
+        return item.puuid === data.puuid;
+      }));
+      list2.push(match.filter(item => {
+        return item.puuid !== data.puuid;
+      }));
     }
   }
-  console.log(list2);
+  console.log(list2)
   return (
     <div className="matchesContainer">
-      {list1.map((item) => {
-        return <MatchInfo match={item} />;
+      {list1.map((item, index) => {
+        return <MatchInfo userData={item[0]} opponentData={list2[index]} />;
       })}
+      <a id='matchLink' onClick={() => {}}></a>
     </div>
   );
 }
-function MatchInfo({ match }) {
-  const champion = match.champion;
-  const traits = match.traits;
-  const units = match.units;
+function MatchInfo({ userData, opponentData }) {
+  const [show, setShow] = useState(false)
+  const champion = userData.champion;
+  const traits = userData.traits;
+  const units = userData.units;
+  return (
+    <div className="matchContainer">
+      <div className="unitContainer">
+        {units.map((unit) => {
+          return <Unit unit={unit} />;
+        })}
+      </div>
+      <button onClick={() => setShow(!show)}>aaaaaaaa</button>
+      {show == true ? (
+        <OpponentsMatchInfo opponentData={opponentData} />
+      ):(
+        <></>
+      )
+
+      }
+    </div>
+  );
+}
+function OpponentsMatchInfo({opponentData}) {
+  console.log()
+  return(
+    <div>
+      {opponentData.map((user) => {
+        return <Opponent Opponent={user}/>;
+      })}
+    </div>
+  )
+}
+function Opponent({ Opponent }) {
+  console.log(Opponent)
+  const champion = Opponent.champion;
+  const traits = Opponent.traits;
+  const units = Opponent.units;
   console.log(units);
   return (
-    <div className="unitContainer">
-      {units.map((unit) => {
-        return <Unit unit={unit} />;
-      })}
+    <div className="matchContainer">
+      <div className="unitContainer">
+        {units.map((unit) => {
+          return <Unit unit={unit} />;
+        })}
+      </div>
     </div>
   );
 }
