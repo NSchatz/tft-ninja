@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: red;
+}
+.header link {
+}
+/* Matches Container */
+.matchesContainer {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 100vw;
+  border: 1px red solid;
+}
+/* Matches */
+.matchContainer {
+}
+/* Unit */
+.unitContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 80%;
+  border: 1px green solid;
+}
+.champImg {
+  height: 80px;
+  border-radius: 50%;
+  width: 80px;
+}
+.itemImg {
+  height: 26px;
+  width: auto;
+}
+.unit {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.itemContainer {
+  position: relative;
+  top: -13px;
+}
+/* Item */
