@@ -11,6 +11,15 @@
 }
 .header link {
 }
+/* Main Container */
+.mainContainer{
+  display: flex;
+  flex-direction: column;
+}
+/* Summoner Info */
+.summonerInfo{
+  width: 40%;
+}
 /* Matches Container */
 .matchesContainer {
   display: flex;
@@ -21,23 +30,29 @@
 }
 /* Matches */
 .matchContainer {
+  width: auto;
+  justify-content: center;
 }
 /* Unit */
 .unitContainer {
-  width: 100%;
+  width: 50rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  width: 80%;
+  justify-content: left;
+
   border: 1px green solid;
 }
+.unitContainer button{
+  width: 20px;
+  background-color: yellow;
+}
 .champImg {
-  height: 80px;
+  height: 55px;
   border-radius: 50%;
-  width: 80px;
+  width: 55px;
 }
 .itemImg {
-  height: 26px;
+  height: 18px;
   width: auto;
 }
 .unit {
@@ -45,6 +60,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 10px 10px;
 }
 .itemContainer {
   position: relative;
